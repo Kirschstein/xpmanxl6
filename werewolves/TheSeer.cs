@@ -77,6 +77,23 @@ namespace werewolves
             Assert.Equal("villager", seer.PlayerAlignment);
         }
 
+        //[Fact]
+        //public void BloodLetterCanTargetPlayerBeforeTheSeerDoes()
+        //{
+        //    var moderator = new Moderator();
+        //    moderator.NewPlayer("vince", "villager");
+        //    moderator.NewPlayer("joe", "villager");
+
+        //    var bloodLetter = new BloodLetter(moderator);
+        //    var seer = new Seer(moderator);
+
+        //    bloodLetter.TargetPlayer("vince");
+        //    seer.TargetPlayer("vince");
+
+        //    moderator.EndNight();
+        //    Assert.Equal("werewolf", seer.PlayerAlignment);
+        //}
+
         public interface ICanBeWhisperedTo
         {
             void Whisper(string alignment);
