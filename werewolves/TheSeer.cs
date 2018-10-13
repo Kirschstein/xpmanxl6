@@ -43,6 +43,23 @@ namespace werewolves
             Assert.Equal("werewolf", seer.PlayerAlignment);
         }
 
+
+        [Fact]
+        public void BloodLetterCanMarkPlayerAsWolfPack()
+        {
+            var moderator = new Moderator();
+            moderator.NewPlayer("vince", "villager");
+
+            var bloodLetter = new BloodLetter(moderator);
+            var seer = new Seer(moderator);
+
+            seer.TargetPlayer("vince");
+            bloodLetter.TargetPlayer("vince");
+
+            moderator.EndNight();
+            Assert.Equal("villager", seer.PlayerAlignment);
+        }
+
         public class Seer
         {
             private readonly Moderator _moderator;
@@ -62,6 +79,21 @@ namespace werewolves
             {
                 PlayerAlignment = alignment;
             }
-        }      
+        }     
+        
+    }
+
+    public class BloodLetter
+    {
+        private readonly Moderator _moderator;
+
+        public BloodLetter(Moderator moderator)
+        {
+            _moderator = moderator;
+        }
+
+        public void TargetPlayer(string player)
+        {
+        }
     }
 }
