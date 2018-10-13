@@ -60,7 +60,12 @@ namespace werewolves
             Assert.Equal("villager", seer.PlayerAlignment);
         }
 
-        public class Seer
+        public interface ICanBeWhisperedTo
+        {
+            void Whisper(string alignment);
+        }
+
+        public class Seer : ICanBeWhisperedTo
         {
             private readonly Moderator _moderator;
             public string PlayerAlignment { get; private set;  }
