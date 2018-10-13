@@ -20,6 +20,7 @@ namespace werewolves
         public void CanCheckAPlayerDiscoverWerewolf()
         {
             Moderator moderator = new Moderator("werewolf");
+            moderator.NewPlayer("david", "werewolf");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
 
@@ -29,6 +30,7 @@ namespace werewolves
         public class Moderator
         {
             private readonly string _role;
+            private Dictionary<string, string> _players = new Dictionary<string, string>();
 
             public Moderator(string role)
             {
@@ -38,6 +40,11 @@ namespace werewolves
             public string Send(string david)
             {
                 return _role;
+            }
+
+            public void NewPlayer(string player, string role)
+            {
+                _players.Add(player, role);
             }
         }
 
