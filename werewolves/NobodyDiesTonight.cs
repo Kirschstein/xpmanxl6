@@ -14,26 +14,21 @@ namespace werewolves
         [Fact]
         public void NobodyDiesTonight()
         {
-            Assert.Equal("it is now daytime", LastMessage());
+            Assert.Equal("it is now daytime", _moderator.LastMessage());
         }
 
         [Fact]
         public void WerewolfTargetsFred()
         {
             _moderator.SendOrder("target Fred");
-            Assert.Equal("Fred has died", LastMessage());
+            Assert.Equal("Fred has died", _moderator.LastMessage());
         }
 
         [Fact]
         public void SueDies()
         {
             _moderator.SendOrder("target Sue");
-            Assert.Equal("Sue has died", LastMessage());
-        }
-
-        private string LastMessage()
-        {
-            return _moderator.LastMessage();
+            Assert.Equal("Sue has died", _moderator.LastMessage());
         }
     }
 }
