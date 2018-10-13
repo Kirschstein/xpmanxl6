@@ -35,5 +35,12 @@ namespace werewolves
         {
             return _message;
         }
+
+
+    }
+
+    public interface IReceiveAMessage
+    {
+
     }
 }
