@@ -11,17 +11,12 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
-
+        private readonly List<(string, TheSeer.Seer)> _resolutions = new List<(string, TheSeer.Seer)>();
         private PlayerList _playerList = new PlayerList();
-        private readonly List<(string, TheSeer.ICanBeWhisperedTo)> _resolutions = new List<(string, TheSeer.ICanBeWhisperedTo)>();
 
         public void EndNight()
         {
             _resolutions.ForEach(x => x.Item2.Whisper(x.Item1));
-        }
-
-        public void Send(string player, BloodLetter seer)
-        {
         }
 
         public void Send(string player, TheSeer.Seer seer)
@@ -62,13 +57,26 @@ namespace werewolves
         {
             _playerList.Register(dave, "Villager");
         }
+
+        public void Send(string player, BloodLetter seer)
+        {
+        }
     }
 
     class PlayerList
     {
-        public void Register(string name, string villager)
+        private Dictionary<string, Player> _players = new Dictionary<string, Player>();
+
+        public void Register(string name, string role)
         {
-            
+            _players.Add(name, new Player(name, role));
+        }
+    }
+
+    internal class Player
+    {
+        public Player(string name, string role)
+        {
         }
     }
 
