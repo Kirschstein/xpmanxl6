@@ -36,7 +36,7 @@ namespace werewolves
 
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
-
+            moderator.EndNight();
             Assert.Equal("werewolf", result);
         }
 
