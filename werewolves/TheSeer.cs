@@ -9,12 +9,21 @@ namespace werewolves
         [Fact]
         public void CanCheckAPlayerAndDiscoverTheyAreNotAWerewolf()
         {
-
             Moderator moderator = new Moderator("villager");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
 
             Assert.Equal("villager", result);
+        }
+
+        [Fact]
+        public void CanCheckAPlayerDiscoverWerewolf()
+        {
+            Moderator moderator = new Moderator("werewolf");
+            var seer = new Seer(moderator);
+            var result = seer.TargetPlayer("david");
+
+            Assert.Equal("werewolf", result);
         }
 
         public class Moderator
