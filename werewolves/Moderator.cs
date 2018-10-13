@@ -21,15 +21,20 @@ namespace werewolves
 
         internal void SendOrder(OrderInfo orderInfo)
         {
-            var parts = orderInfo.Order.Split(" ");
-            var targetName = parts.Last();
-
-            _message = $"{targetName} has died";
+            SendOrder(orderInfo.Order);
         }
 
         public void NewPlayer(string player, string role)
         {
             _players.Add(player, role);
+        }
+
+        public void SendOrder(string order)
+        {
+            var parts = order.Split(" ");
+            var targetName = parts.Last();
+
+            _message = $"{targetName} has died";
         }
 
         public string LastMessage()
