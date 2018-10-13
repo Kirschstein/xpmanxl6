@@ -12,6 +12,7 @@ namespace werewolves
             = new Dictionary<string, string>();
 
         private readonly List<(string, TheSeer.Seer)> _resolutions = new List<(string, TheSeer.Seer)>();
+        private PlayerList _playerList = new PlayerList();
 
         public void EndNight()
         {
@@ -54,11 +55,19 @@ namespace werewolves
 
         public void RegisterPlayer(string dave)
         {
-            
+            _playerList.Register(dave, "Villager");
         }
 
         public void Send(string player, BloodLetter seer)
         {
+        }
+    }
+
+    class PlayerList
+    {
+        public void Register(string name, string villager)
+        {
+            
         }
     }
 
