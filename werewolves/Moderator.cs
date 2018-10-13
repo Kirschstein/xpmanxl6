@@ -12,7 +12,7 @@ namespace werewolves
 
         public void Send(string order, IReceiveAMessage receiver)
         {
-
+            receiver.Receive(Send(order));
         }
 
         public string Send(string order)
