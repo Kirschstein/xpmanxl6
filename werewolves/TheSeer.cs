@@ -9,7 +9,7 @@ namespace werewolves
         [Fact]
         public void CanCheckAPlayerAndDiscoverTheyAreNotAWerewolf()
         {
-            Moderator moderator = new Moderator();
+            var moderator = new Moderator();
             moderator.NewPlayer("david", "villager");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
@@ -20,7 +20,7 @@ namespace werewolves
         [Fact]
         public void CanCheckAPlayerDiscoverWerewolf()
         {
-            Moderator moderator = new Moderator();
+            var moderator = new Moderator();
             moderator.NewPlayer("david", "werewolf");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
