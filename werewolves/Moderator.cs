@@ -11,6 +11,8 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
+        private readonly List<(string, TheSeer.Seer)> _resolutions = new List<(string, TheSeer.Seer)>();
+
         public string Send(string order)
         {
             var parts = order.Split(" ");
@@ -22,6 +24,7 @@ namespace werewolves
         public void Send(string player, TheSeer.Seer seer)
         {
             var alignment = Send(player);
+            _resolutions.Add((player, seer));
         }
 
         internal void SendOrder(OrderInfo orderInfo)
