@@ -5,25 +5,25 @@ namespace werewolves
     public class TheSeer
     {
         [Fact]
-        public void CanCheckAPlayerAndDiscoverTheyAreNotAWerewolf()
+        public void CanCheckAPlayerAlignedToVillage()
         {
             var moderator = new Moderator();
             moderator.NewPlayer("david", "villager");
             var seer = new Seer(moderator);
-            var result = seer.TargetPlayer("david");
+            var alignment = seer.TargetPlayer("david");
 
-            Assert.Equal("villager", result);
+            Assert.Equal("villager", alignment);
         }
 
         [Fact]
-        public void CanCheckAPlayerDiscoverWerewolf()
+        public void CanCheckAPlayerDiscoverAlignedToWarewolves()
         {
             var moderator = new Moderator();
             moderator.NewPlayer("david", "werewolf");
             var seer = new Seer(moderator);
-            var result = seer.TargetPlayer("david");
+            var alignment = seer.TargetPlayer("david");
 
-            Assert.Equal("werewolf", result);
+            Assert.Equal("werewolf", alignment);
         }
 
         [Fact]
