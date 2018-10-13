@@ -40,12 +40,10 @@ namespace werewolves
         {
             return _message;
         }
-
-
     }
 
-    public interface IReceiveAMessage
+    public class OrderInfo
     {
-
+        public string Order { get; }
     }
 }
