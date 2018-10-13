@@ -10,9 +10,12 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
-        public string Send(string david)
+        public string Send(string order)
         {
-            return _players[david];
+            var parts = order.Split(" ");
+            var targetName = parts.Last();
+
+            return _players[targetName];
         }
 
         public void NewPlayer(string player, string role)
