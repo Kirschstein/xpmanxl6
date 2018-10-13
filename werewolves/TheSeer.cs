@@ -9,7 +9,7 @@ namespace werewolves
         [Fact]
         public void CanCheckAPlayerAndDiscoverTheyAreNotAWerewolf()
         {
-            Moderator moderator = new Moderator("villager");
+            Moderator moderator = new Moderator();
             moderator.NewPlayer("david", "villager");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
@@ -20,7 +20,7 @@ namespace werewolves
         [Fact]
         public void CanCheckAPlayerDiscoverWerewolf()
         {
-            Moderator moderator = new Moderator("werewolf");
+            Moderator moderator = new Moderator();
             moderator.NewPlayer("david", "werewolf");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
@@ -30,13 +30,8 @@ namespace werewolves
 
         public class Moderator
         {
-            private readonly string _role;
-            private Dictionary<string, string> _players = new Dictionary<string, string>();
-
-            public Moderator(string role)
-            {
-                _role = role;
-            }
+            private readonly Dictionary<string, string> _players
+                = new Dictionary<string, string>();
 
             public string Send(string david)
             {
