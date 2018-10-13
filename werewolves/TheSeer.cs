@@ -53,9 +53,9 @@ namespace werewolves
                 _moderator = moderator;
             }
 
-            public string TargetPlayer(string david)
+            public string TargetPlayer(string player)
             {
-                return _moderator.Send(david);
+                return _moderator.Send(player);
             }
         }
 
