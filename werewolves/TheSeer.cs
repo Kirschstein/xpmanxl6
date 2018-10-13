@@ -43,6 +43,7 @@ namespace werewolves
         public class Seer
         {
             private readonly Moderator _moderator;
+            public string PlayerAlignment { get; private set;  }
 
             public Seer(Moderator moderator)
             {
@@ -57,7 +58,7 @@ namespace werewolves
 
             public void Whisper(string alignment)
             {
-                
+                PlayerAlignment = alignment;
             }
         }      
     }
