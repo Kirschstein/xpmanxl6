@@ -9,12 +9,11 @@ namespace werewolves
     public class NobodyDiesTonightSpec
     {
         private string _message = "it is now daytime";
-        private Moderator _moderator = new Moderator();
 
         [Fact]
         public void NobodyDiesTonight()
         {
-            Assert.Equal("it is now daytime", _moderator.LastMessage());
+            Assert.Equal("it is now daytime", LastMessage());
         }
 
         [Fact]
