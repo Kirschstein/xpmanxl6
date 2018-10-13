@@ -21,9 +21,10 @@ namespace werewolves
             var moderator = new Moderator();
             moderator.NewPlayer("david", "werewolf");
             var seer = new Seer(moderator);
-            var alignment = seer.TargetPlayer("david");
-
-            Assert.Equal("werewolf", alignment);
+            seer.TargetPlayer("david");
+            
+            moderator.EndNight();
+            Assert.Equal("werewolf", seer.PlayerAlignment);
         }
 
         [Fact]
@@ -35,7 +36,7 @@ namespace werewolves
             moderator.NewPlayer("vince", "villager");
 
             var seer = new Seer(moderator);
-            var result = seer.TargetPlayer("david");
+            seer.TargetPlayer("david");
             moderator.EndNight();
             Assert.Equal("werewolf", seer.PlayerAlignment);
         }
