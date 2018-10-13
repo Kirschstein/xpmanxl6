@@ -19,7 +19,7 @@ namespace werewolves
         [Fact]
         public void WerewolfTargetsFred()
         {
-            SendOrder( "target Fred");
+            SendOrder("target Fred");
             Assert.Equal("Fred has died", LastMessage());
         }
 
@@ -30,7 +30,7 @@ namespace werewolves
             Assert.Equal("Sue has died", LastMessage());
         }
 
-        private void SendOrder(string order)
+        public void SendOrder(string order)
         {
             var parts = order.Split(" ");
             var targetName = parts.Last();
