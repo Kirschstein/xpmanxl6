@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -31,7 +32,8 @@ namespace werewolves
 
         private void SendOrder(string order)
         {
-
+            var parts = order.Split(" ");
+            var targetName = parts.Last();
 
             if (order == "target Fred")
             {
