@@ -10,7 +10,7 @@ namespace werewolves
         public void CanCheckAPlayerAndDiscoverTheyAreNotAWerewolf()
         {
 
-            Moderator moderator = new Moderator();
+            Moderator moderator = new Moderator("villager");
             var seer = new Seer(moderator);
             var result = seer.TargetPlayer("david");
 
@@ -19,9 +19,16 @@ namespace werewolves
 
         public class Moderator
         {
+            private readonly string _role;
+
+            public Moderator(string role)
+            {
+                _role = role;
+            }
+
             public string Send(string david)
             {
-                return "villager";
+                return _role;
             }
         }
 
