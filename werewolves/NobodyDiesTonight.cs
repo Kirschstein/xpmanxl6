@@ -29,9 +29,11 @@ namespace werewolves
             Assert.Equal("Sue has died", LastMessage());
         }
 
-        private void SendOrder(string targetFred)
+        private void SendOrder(string order)
         {
-            if (targetFred == "target Fred")
+
+
+            if (order == "target Fred")
             {
                 _message = "Fred has died";
             }
