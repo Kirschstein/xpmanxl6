@@ -1,3 +1,5 @@
-# can you hurry up get the scripts working commit them so we can use them please!!
+# how to run
 
-thanks
+* open 2 terminal windows
+* run limbo.sh in one
+* run test.sh in the other
