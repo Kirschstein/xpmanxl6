@@ -30,5 +30,10 @@ namespace werewolves
             Assert.Equal("Sue has died", _moderator.LastMessage());
         }
 
+        [Fact]
+        public void VillagerDoesntKillSue()
+        {
+            Assert.Equal("it is now daytime", _moderator.LastMessage());
+        }
     }
 }
