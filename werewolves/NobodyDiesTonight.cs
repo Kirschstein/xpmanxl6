@@ -28,6 +28,7 @@ namespace werewolves
             [Fact]
             public void CanKillSue()
             {
+                _moderator.RegisterPlayer("Wilf");
                 _moderator.SendOrder(new OrderInfo("target Sue"));
                 Assert.Equal("Sue has died", _moderator.LastMessage());
             }
