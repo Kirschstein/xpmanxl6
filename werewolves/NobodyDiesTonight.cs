@@ -17,7 +17,7 @@ namespace werewolves
         }
 
         [Fact]
-        public void WarewolfTargetsFred()
+        public void WerewolfTargetsFred()
         {
             SendOrder( "target Fred");
             Assert.Equal("Fred has died", LastMessage());
