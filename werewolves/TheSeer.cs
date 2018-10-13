@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace werewolves
@@ -28,22 +26,6 @@ namespace werewolves
             Assert.Equal("werewolf", result);
         }
 
-        public class Moderator
-        {
-            private readonly Dictionary<string, string> _players
-                = new Dictionary<string, string>();
-
-            public string Send(string david)
-            {
-                return _players[david];
-            }
-
-            public void NewPlayer(string player, string role)
-            {
-                _players.Add(player, role);
-            }
-        }
-
         public class Seer
         {
             private readonly Moderator _moderator;
@@ -57,8 +39,6 @@ namespace werewolves
             {
                 return _moderator.Send(player);
             }
-        }
-
-      
+        }      
     }
 }
