@@ -55,7 +55,12 @@ namespace werewolves
         private bool SenderIsWerewolf(string playerName)
         {
             var player = _playerRegistry.GetPlayer(playerName);
-            return string.IsNullOrEmpty(playerName);
+            if (player == null)
+            {
+                return string.IsNullOrEmpty(playerName);
+            }
+
+            return player.Role == "Werewolf";
         }
 
         public void NewPlayer(string player, string role)
