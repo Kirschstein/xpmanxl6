@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,6 +24,11 @@ namespace werewolves
             return _players[targetName];
         }
 
+        internal void SendOrder(OrderInfo orderInfo)
+        {
+            SendOrder(orderInfo.Order);
+        }
+
         public void NewPlayer(string player, string role)
         {
             _players.Add(player, role);
@@ -44,6 +50,12 @@ namespace werewolves
 
     public class OrderInfo
     {
+
+        public OrderInfo(string order)
+        {
+            this.Order = order;
+        }
+
         public string Order { get; }
     }
 }

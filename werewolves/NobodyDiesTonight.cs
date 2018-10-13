@@ -20,7 +20,7 @@ namespace werewolves
         [Fact]
         public void WerewolfTargetsFred()
         {
-            _moderator.SendOrder("target Fred");
+            _moderator.SendOrder(new OrderInfo("target Fred"));
             Assert.Equal("Fred has died", _moderator.LastMessage());
         }
 
