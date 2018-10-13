@@ -24,7 +24,7 @@ namespace werewolves
         public void Send(string player, TheSeer.Seer seer)
         {
             var alignment = Send(player);
-            _resolutions.Add((player, seer));
+            _resolutions.Add((alignment, seer));
         }
 
         internal void SendOrder(OrderInfo orderInfo)
