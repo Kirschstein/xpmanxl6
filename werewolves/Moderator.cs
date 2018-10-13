@@ -29,10 +29,18 @@ namespace werewolves
 
         internal void SendOrder(OrderInfo orderInfo)
         {
-            var parts = orderInfo.Order.Split(" ");
-            var targetName = parts.Last();
+            if (SenderIsWerewolf(orderInfo.Sender))
+            {
+                var parts = orderInfo.Order.Split(" ");
+                var targetName = parts.Last();
 
-            _message = $"{targetName} has died";
+                _message = $"{targetName} has died";
+            }
+        }
+
+        private bool SenderIsWerewolf(string orderInfoSender)
+        {
+            return string.IsNullOrEmpty(orderInfoSender);
         }
 
         public void NewPlayer(string player, string role)

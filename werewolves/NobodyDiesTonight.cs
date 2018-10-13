@@ -33,6 +33,7 @@ namespace werewolves
         [Fact]
         public void VillagerDoesntKillSue()
         {
+            _moderator.SendOrder(new OrderInfo("Dave", "target Sue"));
             Assert.Equal("it is now daytime", _moderator.LastMessage());
         }
     }
