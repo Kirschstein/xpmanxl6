@@ -18,14 +18,14 @@ namespace werewolves
         }
 
         [Fact]
-        public void WerewolfTargetsFred()
+        public void WerewolfKillsFred()
         {
             _moderator.SendOrder(new OrderInfo("target Fred"));
             Assert.Equal("Fred has died", _moderator.LastMessage());
         }
 
         [Fact]
-        public void SueDies()
+        public void WerewolfKillsSue()
         {
             _moderator.SendOrder(new OrderInfo("target Sue"));
             Assert.Equal("Sue has died", _moderator.LastMessage());
