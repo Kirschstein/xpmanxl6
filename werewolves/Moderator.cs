@@ -19,6 +19,11 @@ namespace werewolves
             return _players[targetName];
         }
 
+        public void Send(string player, TheSeer.Seer seer)
+        {
+            var alignment = Send(player);
+        }
+
         internal void SendOrder(OrderInfo orderInfo)
         {
             var parts = orderInfo.Order.Split(" ");
@@ -35,11 +40,6 @@ namespace werewolves
         public string LastMessage()
         {
             return _message;
-        }
-
-        public void Send(string player, TheSeer.Seer seer)
-        {
-            
         }
     }
 
