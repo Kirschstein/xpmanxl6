@@ -51,6 +51,7 @@ namespace werewolves
 
             public string TargetPlayer(string player)
             {
+                _moderator.Send(player, this);
                 return _moderator.Send(player);
             }
         }      

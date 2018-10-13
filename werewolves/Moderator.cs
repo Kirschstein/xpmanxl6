@@ -36,6 +36,11 @@ namespace werewolves
         {
             return _message;
         }
+
+        public void Send(string player, TheSeer.Seer seer)
+        {
+            
+        }
     }
 
     public class OrderInfo
