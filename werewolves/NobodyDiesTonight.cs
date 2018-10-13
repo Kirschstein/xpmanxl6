@@ -35,14 +35,7 @@ namespace werewolves
             var parts = order.Split(" ");
             var targetName = parts.Last();
 
-            if (order == "target Fred")
-            {
-                _message = "Fred has died";
-            }
-            else
-            {
-                _message = "Sue has died";
-            }
+            _message = $"{targetName} has died";
         }
 
         private string LastMessage()
