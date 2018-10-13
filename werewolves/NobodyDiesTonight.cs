@@ -6,36 +6,44 @@ using Xunit;
 
 namespace werewolves
 {
-    public class NobodyDiesTonightSpec
+    public class AtNight
     {
-        private readonly Moderator _moderator = new Moderator();
-
-        [Fact]
-        public void NobodyDiesTonight()
+        public class AWerewolf
         {
-            Assert.Equal("it is now daytime", _moderator.LastMessage());
+            private readonly Moderator _moderator = new Moderator();
+
+            [Fact]
+            public void NobodyDiesTonight()
+            {
+                Assert.Equal("it is now daytime", _moderator.LastMessage());
+            }
+
+            [Fact]
+            public void CanKillFred()
+            {
+                _moderator.SendOrder(new OrderInfo("target Fred"));
+                Assert.Equal("Fred has died", _moderator.LastMessage());
+            }
+
+            [Fact]
+            public void CanKillSue()
+            {
+                _moderator.SendOrder(new OrderInfo("target Sue"));
+                Assert.Equal("Sue has died", _moderator.LastMessage());
+            }
         }
 
-        [Fact]
-        public void WerewolfKillsFred()
+        public class AVillager
         {
-            _moderator.SendOrder(new OrderInfo("target Fred"));
-            Assert.Equal("Fred has died", _moderator.LastMessage());
-        }
+            private readonly Moderator _moderator = new Moderator();
 
-        [Fact]
-        public void WerewolfKillsSue()
-        {
-            _moderator.SendOrder(new OrderInfo("target Sue"));
-            Assert.Equal("Sue has died", _moderator.LastMessage());
-        }
-
-        [Fact]
-        public void VillagerDoesntKillSue()
-        {
-            _moderator.RegisterPlayer("Dave");
-            _moderator.SendOrder(new OrderInfo("Dave", "target Sue"));
-            Assert.Equal("it is now daytime", _moderator.LastMessage());
+            [Fact]
+            public void CantKillSue()
+            {
+                _moderator.RegisterPlayer("Dave");
+                _moderator.SendOrder(new OrderInfo("Dave", "target Sue"));
+                Assert.Equal("it is now daytime", _moderator.LastMessage());
+            }
         }
     }
 }
