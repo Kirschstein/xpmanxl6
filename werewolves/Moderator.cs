@@ -13,17 +13,16 @@ namespace werewolves
 
         private readonly List<(string, TheSeer.Seer)> _resolutions = new List<(string, TheSeer.Seer)>();
 
-        public string Send(string order)
+        public void EndNight()
         {
-            var parts = order.Split(" ");
-            var targetName = parts.Last();
-
-            return _players[targetName];
+            _resolutions.ForEach(x => x.Item2.Whisper(x.Item1));
         }
 
         public void Send(string player, TheSeer.Seer seer)
         {
-            var alignment = Send(player);
+            var parts = player.Split(" ");
+            var targetName = parts.Last();
+            var alignment = _players[targetName];
             _resolutions.Add((alignment, seer));
         }
 

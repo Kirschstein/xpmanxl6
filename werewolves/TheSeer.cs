@@ -53,10 +53,9 @@ namespace werewolves
                 _moderator = moderator;
             }
 
-            public string TargetPlayer(string player)
+            public void TargetPlayer(string player)
             {
                 _moderator.Send(player, this);
-                return _moderator.Send(player);
             }
 
             public void Whisper(string alignment)
