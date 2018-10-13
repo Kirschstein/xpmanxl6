@@ -27,7 +27,7 @@ namespace werewolves
         [Fact]
         public void SueDies()
         {
-            _moderator.SendOrder("target Sue");
+            _moderator.SendOrder(new OrderInfo("target Sue"));
             Assert.Equal("Sue has died", _moderator.LastMessage());
         }
     }
