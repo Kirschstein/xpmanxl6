@@ -11,7 +11,7 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
-        private PlayerList _playerList = new PlayerList();
+        private PlayerRegistry _playerRegistry = new PlayerRegistry();
 
         private List<(string, TheSeer.ICanBeWhisperedTo)> _resolutions = new List<(string, TheSeer.ICanBeWhisperedTo)>();
 
@@ -52,9 +52,10 @@ namespace werewolves
             }
         }
 
-        private bool SenderIsWerewolf(string orderInfoSender)
+        private bool SenderIsWerewolf(string playerName)
         {
-            return string.IsNullOrEmpty(orderInfoSender);
+            var player = _playerRegistry.GetPlayer(playerName);
+            return string.IsNullOrEmpty(playerName);
         }
 
         public void NewPlayer(string player, string role)
@@ -69,7 +70,7 @@ namespace werewolves
 
         public void RegisterPlayer(string dave)
         {
-            _playerList.Register(dave, "Villager");
+            _playerRegistry.Register(dave, "Villager");
         }
     }
 
