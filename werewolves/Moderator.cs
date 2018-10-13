@@ -56,6 +56,10 @@ namespace werewolves
         {
             
         }
+
+        public void Send(string player, BloodLetter seer)
+        {
+        }
     }
 
     public class OrderInfo

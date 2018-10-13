@@ -94,6 +94,7 @@ namespace werewolves
 
         public void TargetPlayer(string player)
         {
+            _moderator.Send(player, this);
         }
     }
 }
