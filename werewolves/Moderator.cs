@@ -10,6 +10,11 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
+        public void Send(string order, IReceiveAMessage receiver)
+        {
+
+        }
+
         public string Send(string order)
         {
             var parts = order.Split(" ");
