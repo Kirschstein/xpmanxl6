@@ -8,8 +8,7 @@ namespace werewolves
 {
     public class NobodyDiesTonightSpec
     {
-        private string _message = "it is now daytime";
-        private Moderator _moderator = new Moderator();
+        private readonly Moderator _moderator = new Moderator();
 
         [Fact]
         public void NobodyDiesTonight()
@@ -30,5 +29,6 @@ namespace werewolves
             _moderator.SendOrder(new OrderInfo("target Sue"));
             Assert.Equal("Sue has died", _moderator.LastMessage());
         }
+
     }
 }

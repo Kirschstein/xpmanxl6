@@ -45,10 +45,16 @@ namespace werewolves
 
     public class OrderInfo
     {
+        public string Sender { get; }
 
         public OrderInfo(string order)
         {
             this.Order = order;
+        }
+
+        public OrderInfo(string sender, string order) : this(order)
+        {
+            Sender = sender;
         }
 
         public string Order { get; }
