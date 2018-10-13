@@ -11,11 +11,6 @@ namespace werewolves
         private readonly Dictionary<string, string> _players
             = new Dictionary<string, string>();
 
-        public void Send(string order, IReceiveAMessage receiver)
-        {
-            receiver.Receive(Send(order));
-        }
-
         public string Send(string order)
         {
             var parts = order.Split(" ");
@@ -26,20 +21,15 @@ namespace werewolves
 
         internal void SendOrder(OrderInfo orderInfo)
         {
-            SendOrder(orderInfo.Order);
+            var parts = orderInfo.Order.Split(" ");
+            var targetName = parts.Last();
+
+            _message = $"{targetName} has died";
         }
 
         public void NewPlayer(string player, string role)
         {
             _players.Add(player, role);
-        }
-
-        public void SendOrder(string order)
-        {
-            var parts = order.Split(" ");
-            var targetName = parts.Last();
-
-            _message = $"{targetName} has died";
         }
 
         public string LastMessage()
