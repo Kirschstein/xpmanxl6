@@ -57,7 +57,7 @@ namespace werewolves
             bloodLetter.TargetPlayer("vince");
 
             moderator.EndNight();
-            Assert.Equal("villager", seer.PlayerAlignment);
+            Assert.Equal("werewolf", seer.PlayerAlignment);
         }
 
         public interface ICanBeWhisperedTo

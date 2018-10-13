@@ -22,15 +22,7 @@ namespace werewolves
 
         public void Send(string player, BloodLetter bloodLetter)
         {
-            _resolutions = _resolutions.Select(x =>
-            {
-                return x;
-                //if (x.Item2 is TheSeer.Seer)
-                //{
-                //    return ("", x.Item2);
-                //}
-                //else return x;
-            }).ToList();
+            _resolutions = _resolutions.Select(x => { return ("werewolf", x.Item2); }).ToList();
         }
 
         public void Send(string player, TheSeer.Seer seer)
