@@ -41,6 +41,7 @@ namespace werewolves
     public class OrderInfo
     {
         public string Sender { get; }
+        public string Order { get; }
 
         public OrderInfo(string order)
         {
@@ -51,7 +52,5 @@ namespace werewolves
         {
             Sender = sender;
         }
-
-        public string Order { get; }
     }
 }
