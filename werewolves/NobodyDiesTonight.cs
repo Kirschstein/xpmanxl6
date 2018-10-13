@@ -25,8 +25,8 @@ namespace werewolves
         [Fact]
         public void SueDies()
         {
-            SendOrder("target Fred");
-            Assert.Equal("Fred has died", LastMessage());
+            SendOrder("target Sue");
+            Assert.Equal("Sue has died", LastMessage());
         }
 
         private void SendOrder(string targetFred)
