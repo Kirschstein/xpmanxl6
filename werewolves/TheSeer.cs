@@ -54,6 +54,11 @@ namespace werewolves
                 _moderator.Send(player, this);
                 return _moderator.Send(player);
             }
+
+            public void Whisper(string alignment)
+            {
+                
+            }
         }      
     }
 }
