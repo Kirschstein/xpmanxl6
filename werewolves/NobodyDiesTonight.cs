@@ -13,7 +13,7 @@ namespace werewolves
         [Fact]
         public void NobodyDiesTonight()
         {
-            Assert.Equal("it is now daytime", LastMessage());
+            Assert.Equal("it is now daytime", new Moderator().LastMessage());
         }
 
         [Fact]
