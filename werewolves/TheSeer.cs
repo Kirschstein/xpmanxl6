@@ -26,6 +26,20 @@ namespace werewolves
             Assert.Equal("werewolf", result);
         }
 
+        [Fact]
+        public void MultiplePlayersCanBeDistinguished()
+        {
+            var moderator = new Moderator();
+
+            moderator.NewPlayer("david", "werewolf");
+            moderator.NewPlayer("vince", "villager");
+
+            var seer = new Seer(moderator);
+            var result = seer.TargetPlayer("david");
+
+            Assert.Equal("werewolf", result);
+        }
+
         public class Seer
         {
             private readonly Moderator _moderator;
